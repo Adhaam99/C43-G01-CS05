@@ -29,33 +29,42 @@ namespace Assignment05
 
         #endregion
 
-
-
         #region Q2 - Ex
 
-        public static int ValSumArray(int[] arr)
-        {
-            int sum = 0;
-            arr[0] = 100;
+        //public static int ValSumArray(int[] arr)
+        //{
+        //    int sum = 0;
+        //    arr[0] = 100;
 
-            for (int i = 0; i < arr.Length; i++)
-                sum += arr[i];
+        //    for (int i = 0; i < arr.Length; i++)
+        //        sum += arr[i];
 
-            return sum;
-        }
+        //    return sum;
+        //}
 
-        public static int RefSumArray(ref int[] arr)
-        {
-            int sum = 0;
-            arr[0] = 100;
+        //public static int RefSumArray(ref int[] arr)
+        //{
+        //    int sum = 0;
+        //    arr[0] = 100;
 
-            for (int i = 0; i < arr.Length; i++)
-                sum += arr[i];
+        //    for (int i = 0; i < arr.Length; i++)
+        //        sum += arr[i];
 
-            return sum;
-        }
+        //    return sum;
+        //}
 
         #endregion
+
+        #region Q3
+
+        public static void SumSub (int num01 , int num02 , int num03 , int num04 , out int sum, out int sub)
+
+        {
+            sum = num01 + num02;
+            sub = num03 - num04;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Q1 - Explain the difference between passing (Value type parameters) by value and by reference then write a suitable c# example.
@@ -100,19 +109,45 @@ namespace Assignment05
              * The difference 'll be in the way it works in the memory
              */
 
-            int[] numbers = { 1, 2, 3, 4, 5 };
+            //int[] numbers = { 1, 2, 3, 4, 5 };
 
-            int sum = ValSumArray(numbers);
+            //int sum = ValSumArray(numbers);
 
-            Console.WriteLine($"Result ValSum : {sum}");
-            Console.WriteLine(numbers[0]);
+            //Console.WriteLine($"Result ValSum : {sum}");
+            //Console.WriteLine(numbers[0]);
 
-            Console.WriteLine("==========================================");
+            //Console.WriteLine("==========================================");
 
-            Console.WriteLine($"Result RefSum : {sum}");
-            Console.WriteLine(numbers[0]);
+            //Console.WriteLine($"Result RefSum : {sum}");
+            //Console.WriteLine(numbers[0]);
 
+            #endregion
 
+            #region Q3 - Write a c# Function that accept 4 parameters from user and return result of summation and subtracting of two numbers
+
+            Console.Write("Enter first number of Sum : ");
+
+            int.TryParse(Console.ReadLine(), out int num01);
+
+            Console.Write("Enter Second number of Sum : ");
+
+            int.TryParse(Console.ReadLine(), out int num02);
+
+            Console.Write("Enter first number of Sub : ");
+
+            int.TryParse(Console.ReadLine(), out int num03);
+
+            Console.Write("Enter Second number of Sub : ");
+
+            int.TryParse(Console.ReadLine(), out int num04);
+
+            int Sum , Sub;
+
+            SumSub(num01 , num02 , num03 , num04 , out Sum, out Sub);
+
+            Console.WriteLine($"Sum of {num01} + {num02} = {Sum}");
+
+            Console.WriteLine($"Sub of {num03} - {num04} = {Sub}");
 
 
 
