@@ -91,18 +91,41 @@ namespace Assignment05
 
         #region Q5
 
-        public static bool IsPrime(int num)
+        //public static bool IsPrime(int num)
+        //{
+        //    if ( num <= 1)
+        //        return false;
+        //    for (int i = 2; i < Math.Sqrt(num); i++)
+        //    {
+        //        if ( num % i == 0)
+        //            return false;
+        //    }
+
+        //    return true;
+
+        //}
+
+        #endregion
+
+        #region Q6
+
+        public static void MinMaxArray(int[] array , out int max, out int min) 
+
         {
-            if ( num <= 1)
-                return false;
-            for (int i = 2; i < Math.Sqrt(num); i++)
+
+            max = array[0];
+
+            min = array[0];
+
+            for (int i = 0; i < array.Length; i++)
             {
-                if ( num % i == 0)
-                    return false;
+                if (array[i] > max)
+                    max = array[i];
+
+                if (array[i] < min)
+                    min = array[i];
             }
 
-            return true;
-                
         }
 
         #endregion
@@ -211,23 +234,33 @@ namespace Assignment05
 
             #region Q5 - Create a function named "IsPrime", which receives an integer number and retuns true if it is prime, or false if it is not:
 
-            int num;
-            bool flag;
+            //int num;
+            //bool flag;
 
-            do
-            {
-                Console.Write("Enter a number : ");
-                flag = int.TryParse(Console.ReadLine(), out num);
-            } while (!flag);
+            //do
+            //{
+            //    Console.Write("Enter a number : ");
+            //    flag = int.TryParse(Console.ReadLine(), out num);
+            //} while (!flag);
 
-            Console.WriteLine($"=========================");
+            //Console.WriteLine($"=========================");
 
-            Console.WriteLine(IsPrime(num));
+            //Console.WriteLine(IsPrime(num));
 
 
             #endregion
 
+            #region Q6 - Create a function named MinMaxArray, to return the minimum and maximum values stored in an array, using reference parameters
 
-        }
+            int[] arr = { 1, 2, 3, 4, 5 };
+
+            MinMaxArray(arr , out int max, out int min);
+
+                Console.WriteLine($"Max value is : {max}");
+
+                Console.WriteLine($"Min value is : {min}");
+
+                #endregion
+            }
     }
 }
