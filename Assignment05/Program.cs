@@ -7,27 +7,55 @@ namespace Assignment05
 
         #region Q1 - Ex
 
-        public static int ValSum(int X, int Y)
-        {
+        //public static int ValSum(int X, int Y)
+        //{
 
-            int Result = X + Y;
+        //    int Result = X + Y;
 
-            return Result;
-        }
+        //    return Result;
+        //}
 
-        public static int RefSum(ref int X, ref int Y)
-        {
+        //public static int RefSum(ref int X, ref int Y)
+        //{
 
-            X = 5;
+        //    X = 5;
 
-            Y = 10;
+        //    Y = 10;
 
-            int Result = X + Y;
+        //    int Result = X + Y;
 
-            return Result;
-        }
+        //    return Result;
+        //}
+
         #endregion
 
+
+
+        #region Q2 - Ex
+
+        public static int ValSumArray(int[] arr)
+        {
+            int sum = 0;
+            arr[0] = 100;
+
+            for (int i = 0; i < arr.Length; i++)
+                sum += arr[i];
+
+            return sum;
+        }
+
+        public static int RefSumArray(ref int[] arr)
+        {
+            int sum = 0;
+            arr[0] = 100;
+
+            for (int i = 0; i < arr.Length; i++)
+                sum += arr[i];
+
+            return sum;
+        }
+
+        #endregion
         static void Main(string[] args)
         {
             #region Q1 - Explain the difference between passing (Value type parameters) by value and by reference then write a suitable c# example.
@@ -63,10 +91,30 @@ namespace Assignment05
             #region Q2 - Explain the difference between passing (Reference type parameters) by value and by reference then write a suitable c# example.
 
             /*
-             * The two ways 'll give the same output
+             * The two ways 'll give the same output and original object 'll be affected.
+             *
+             * In value type param assigning new values 'll not affect the original object.
              * 
-             * The difference 'll be in the way it works
+             * In ref type param assigning new values 'll affect the original object.
+             * 
+             * The difference 'll be in the way it works in the memory
              */
+
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            int sum = ValSumArray(numbers);
+
+            Console.WriteLine($"Result ValSum : {sum}");
+            Console.WriteLine(numbers[0]);
+
+            Console.WriteLine("==========================================");
+
+            Console.WriteLine($"Result RefSum : {sum}");
+            Console.WriteLine(numbers[0]);
+
+
+
+
 
 
 
