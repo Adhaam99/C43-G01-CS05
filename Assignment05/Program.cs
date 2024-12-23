@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment05
 {
@@ -57,12 +58,34 @@ namespace Assignment05
 
         #region Q3
 
-        public static void SumSub (int num01 , int num02 , int num03 , int num04 , out int sum, out int sub)
+        //public static void SumSub (int num01 , int num02 , int num03 , int num04 , out int sum, out int sub)
 
+        //{
+        //    sum = num01 + num02;
+        //    sub = num03 - num04;
+        //}
+
+        #endregion
+
+        #region Q4
+
+        public static int SumIndviduals(int num)
         {
-            sum = num01 + num02;
-            sub = num03 - num04;
+            int sum = 0;
+
+            if ( num != 0)
+            {
+               
+                while ( num > 0 )
+                {
+                    sum += num % 10;
+                    num /= 10;
+                }
+            }
+
+            return sum;
         }
+
         #endregion
 
         static void Main(string[] args)
@@ -125,34 +148,46 @@ namespace Assignment05
 
             #region Q3 - Write a c# Function that accept 4 parameters from user and return result of summation and subtracting of two numbers
 
-            Console.Write("Enter first number of Sum : ");
+            //Console.Write("Enter first number of Sum : ");
 
-            int.TryParse(Console.ReadLine(), out int num01);
+            //int.TryParse(Console.ReadLine(), out int num01);
 
-            Console.Write("Enter Second number of Sum : ");
+            //Console.Write("Enter Second number of Sum : ");
 
-            int.TryParse(Console.ReadLine(), out int num02);
+            //int.TryParse(Console.ReadLine(), out int num02);
 
-            Console.Write("Enter first number of Sub : ");
+            //Console.Write("Enter first number of Sub : ");
 
-            int.TryParse(Console.ReadLine(), out int num03);
+            //int.TryParse(Console.ReadLine(), out int num03);
 
-            Console.Write("Enter Second number of Sub : ");
+            //Console.Write("Enter Second number of Sub : ");
 
-            int.TryParse(Console.ReadLine(), out int num04);
+            //int.TryParse(Console.ReadLine(), out int num04);
 
-            int Sum , Sub;
+            //int Sum , Sub;
 
-            SumSub(num01 , num02 , num03 , num04 , out Sum, out Sub);
+            //SumSub(num01 , num02 , num03 , num04 , out Sum, out Sub);
 
-            Console.WriteLine($"Sum of {num01} + {num02} = {Sum}");
+            //Console.WriteLine($"Sum of {num01} + {num02} = {Sum}");
 
-            Console.WriteLine($"Sub of {num03} - {num04} = {Sub}");
+            //Console.WriteLine($"Sub of {num03} - {num04} = {Sub}");
 
+            #endregion
 
+            #region Q4- Write a program in C# Sharp to create a function to calculate the sum of the individual digits of a given number.
 
+            int num;
+            bool flag;
 
+            do
+            {
+                Console.Write("Enter a number : ");
+                flag = int.TryParse(Console.ReadLine(), out num);
+            } while (!flag);
 
+            Console.WriteLine("=====================================");
+
+            Console.WriteLine($"The Sum is : {SumIndviduals(num)}");
             #endregion
         }
     }
