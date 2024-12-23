@@ -93,9 +93,9 @@ namespace Assignment05
             /*
              * The two ways 'll give the same output and original object 'll be affected.
              *
-             * In value type param assigning new values 'll not affect the original object.
+             * In value type param assigning new object 'll not affect the original object.
              * 
-             * In ref type param assigning new values 'll affect the original object.
+             * In ref type param assigning new object 'll affect the original object.
              * 
              * The difference 'll be in the way it works in the memory
              */
