@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.IO.Pipelines;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment05
@@ -69,21 +70,39 @@ namespace Assignment05
 
         #region Q4
 
-        public static int SumIndviduals(int num)
-        {
-            int sum = 0;
+        //public static int SumIndviduals(int num)
+        //{
+        //    int sum = 0;
 
-            if ( num != 0)
+        //    if ( num != 0)
+        //    {
+
+        //        while ( num > 0 )
+        //        {
+        //            sum += num % 10;
+        //            num /= 10;
+        //        }
+        //    }
+
+        //    return sum;
+        //}
+
+        #endregion
+
+        #region Q5
+
+        public static bool IsPrime(int num)
+        {
+            if ( num <= 1)
+                return false;
+            for (int i = 2; i < Math.Sqrt(num); i++)
             {
-               
-                while ( num > 0 )
-                {
-                    sum += num % 10;
-                    num /= 10;
-                }
+                if ( num % i == 0)
+                    return false;
             }
 
-            return sum;
+            return true;
+                
         }
 
         #endregion
@@ -174,7 +193,23 @@ namespace Assignment05
 
             #endregion
 
-            #region Q4- Write a program in C# Sharp to create a function to calculate the sum of the individual digits of a given number.
+            #region Q4 - Write a program in C# Sharp to create a function to calculate the sum of the individual digits of a given number.
+
+            //int num;
+            //bool flag;
+
+            //do
+            //{
+            //    Console.Write("Enter a number : ");
+            //    flag = int.TryParse(Console.ReadLine(), out num);
+            //} while (!flag);
+
+            //Console.WriteLine("=====================================");
+
+            //Console.WriteLine($"The Sum is : {SumIndviduals(num)}");
+            #endregion
+
+            #region Q5 - Create a function named "IsPrime", which receives an integer number and retuns true if it is prime, or false if it is not:
 
             int num;
             bool flag;
@@ -185,10 +220,14 @@ namespace Assignment05
                 flag = int.TryParse(Console.ReadLine(), out num);
             } while (!flag);
 
-            Console.WriteLine("=====================================");
+            Console.WriteLine($"=========================");
 
-            Console.WriteLine($"The Sum is : {SumIndviduals(num)}");
+            Console.WriteLine(IsPrime(num));
+
+
             #endregion
+
+
         }
     }
 }
