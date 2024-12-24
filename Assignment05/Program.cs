@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.IO.Pipelines;
+using System.Reflection.Metadata;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment05
@@ -109,25 +110,43 @@ namespace Assignment05
 
         #region Q6
 
-        public static void MinMaxArray(int[] array , out int max, out int min) 
+        //public static void MinMaxArray(int[] array , out int max, out int min) 
 
+        //{
+
+        //    max = array[0];
+
+        //    min = array[0];
+
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        if (array[i] > max)
+        //            max = array[i];
+
+        //        if (array[i] < min)
+        //            min = array[i];
+        //    }
+
+        //}
+
+        #endregion
+
+        #region Q7
+
+        public static int Factorial( int num  )
         {
 
-            max = array[0];
+            int fact = num;
 
-            min = array[0];
-
-            for (int i = 0; i < array.Length; i++)
+            if ( num == 0 ) 
+                return 1;
+            for ( int i = 1; i < num; i++ )
             {
-                if (array[i] > max)
-                    max = array[i];
-
-                if (array[i] < min)
-                    min = array[i];
+                fact *= (num - i);
             }
 
+            return fact;
         }
-
         #endregion
 
         static void Main(string[] args)
@@ -252,15 +271,32 @@ namespace Assignment05
 
             #region Q6 - Create a function named MinMaxArray, to return the minimum and maximum values stored in an array, using reference parameters
 
-            int[] arr = { 1, 2, 3, 4, 5 };
+            //int[] arr = { 1, 2, 3, 4, 5 };
 
-            MinMaxArray(arr , out int max, out int min);
+            //MinMaxArray(arr , out int max, out int min);
 
-                Console.WriteLine($"Max value is : {max}");
+            //Console.WriteLine($"Max value is : {max}");
 
-                Console.WriteLine($"Min value is : {min}");
+            //Console.WriteLine($"Min value is : {min}");
 
-                #endregion
-            }
+            #endregion
+
+            #region Q7 - Create an iterative (non-recursive) function to calculate the factorial of the number specified as parameter
+
+            int num;
+            bool flag;
+
+            do
+            {
+                Console.Write("Enter a number : ");
+                flag = int.TryParse(Console.ReadLine(), out num);
+            } while (!flag);
+
+            Console.WriteLine("=====================================");
+
+            Console.WriteLine($"The factorial is : {Factorial(num)}");
+
+            #endregion
+        }
     }
 }
