@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Buffers.Text;
+using System.ComponentModel;
 using System.IO.Pipelines;
 using System.Reflection.Metadata;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -133,21 +134,39 @@ namespace Assignment05
 
         #region Q7
 
-        public static int Factorial( int num  )
-        {
+        //public static int Factorial( int num  )
+        //{
 
-            int fact = num;
+        //    int fact = num;
 
-            if ( num == 0 ) 
-                return 1;
-            for ( int i = 1; i < num; i++ )
-            {
-                fact *= (num - i);
-            }
+        //    if ( num == 0 ) 
+        //        return 1;
+        //    for ( int i = 1; i < num; i++ )
+        //    {
+        //        fact *= (num - i);
+        //    }
 
-            return fact;
-        }
+        //    return fact;
+        //}
         #endregion
+
+
+        #region Q8
+
+        public static string ChangeChar( string oldString , int index , char myChar )
+        {
+            Char[] stringChars = oldString.ToCharArray();
+
+            stringChars[index] = myChar;
+
+
+            string newString = new string( stringChars );
+
+            return newString;
+        }
+
+        #endregion
+
 
         static void Main(string[] args)
         {
@@ -283,18 +302,27 @@ namespace Assignment05
 
             #region Q7 - Create an iterative (non-recursive) function to calculate the factorial of the number specified as parameter
 
-            int num;
-            bool flag;
+            //int num;
+            //bool flag;
 
-            do
-            {
-                Console.Write("Enter a number : ");
-                flag = int.TryParse(Console.ReadLine(), out num);
-            } while (!flag);
+            //do
+            //{
+            //    Console.Write("Enter a number : ");
+            //    flag = int.TryParse(Console.ReadLine(), out num);
+            //} while (!flag);
 
-            Console.WriteLine("=====================================");
+            //Console.WriteLine("=====================================");
 
-            Console.WriteLine($"The factorial is : {Factorial(num)}");
+            //Console.WriteLine($"The factorial is : {Factorial(num)}");
+
+            #endregion
+
+            #region Q8 - Create a function named "ChangeChar" to modify a letter in a certain position(0 based) of a string, replacing it with a different letter
+
+            string myString = "Hello World";
+
+            Console.WriteLine( ChangeChar( myString , 6 , 'M' ));
+
 
             #endregion
         }
